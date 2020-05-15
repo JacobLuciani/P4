@@ -1,0 +1,123 @@
+#
+{
+  out 1 ;
+}
+#
+
+#
+declare x := 1 ;
+declare y := 2 ;
+{
+  out 1 ;
+}
+#
+
+#
+declare x := 1 ;
+declare y := 2 ;
+{
+  declare z := 3 ;
+  out 1 ;
+}
+#
+
+#
+declare x := 1 ;
+declare y := 2 ;
+{
+declare z := 3 ;
+  { 
+    out 1 ;
+  } 
+  out 2 ;
+}
+#
+
+
+#
+The following correctly prompted the VM to error, predicting division by 0
+#
+#
+declare x := 1 ;
+declare y := 2 ;
+{
+  in x ;
+  out x + 2 / ( 2 - y ) ;
+}
+#
+
+#
+declare x := 5 ;
+{
+  in x ;
+  iffy [ x < 0 ] then
+    out x ; ;
+}
+#
+
+#
+declare x := 2 ;
+{
+in x ;
+iffy [ x < 0 ] then 
+  {
+    x := 5 ;
+    out x ;
+  } ;
+}
+#
+
+# This test was done with all RO operators#
+#
+declare x := 7 ;
+{
+in x ;
+loop [ x > 0 ] 
+	{
+ 	 	out x ;
+  		in x ;
+	} ;
+}
+#
+
+#
+declare x := 5 ;
+{
+in x ;
+loop [ x < 0 ] 
+  {
+    x := 5 ;
+    out x ;
+  } ;
+}
+#
+
+#
+declare x := 0 ;
+{
+  in x ;
+  iffy [ x < 0 ] then
+    iffy [ x < > 0 ] then 
+      out x ; ; ;
+}
+#
+
+#
+declare x := 0 ;
+{
+  goto x ;
+    iffy [ x < 0 ] then
+      iffy [ x < > 0 ] then 
+  label x ; ; ;
+}
+#
+
+#
+declare x := 0 ;
+{
+in x ;
+loop [ x + 2 / 3 < 0 - * 3 ]
+  iffy [ x < > 0 ] then 
+    out x ; ; ;
+}
+#

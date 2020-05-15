@@ -1,0 +1,59 @@
+#
+declare x := 0 ;
+{
+  goto x ;
+    iffy [ x < 0 ] then
+      iffy [ x < > 0 ] then 
+  label x ; ; ;
+  out x ;
+}
+#
+
+#
+The iffy below was tested with each of <, <<, <>, >>, >, and ==
+#
+
+#
+declare x := 7 ;
+{
+	in x ;
+	loop [ x < > 0 ] 
+	{
+  		out x ; 
+  		in x ;
+	} ;
+}
+#
+
+#
+declare x := 2 ;
+{
+	iffy [ x < 3 ] then
+		out x ; ;
+		
+} 
+#
+
+#
+declare x := 2 ;
+{
+	x := 2 - 3 / 1 + 5 ;
+	out x ;
+}
+#
+
+#
+declare x := 2 ;
+{
+	x := 2 - 3 + 5 ;
+	
+}
+#
+
+#
+declare x := 2 ;
+{
+	x := 2 - 3 ;
+	
+}
+#
